@@ -1,0 +1,112 @@
+<head>
+  <title>student performance</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    margin: 50;
+  }
+  
+  /* Style the header */
+  .header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+  }
+  </style>
+  </head>
+  <body>
+  
+  <div class="header">
+    <h1>Student performance prediction system</h1>
+  </div>
+
+  <div>
+    <form action="{{ url_for('predict')}}" method="post">
+        <h2>Predict your performance</h2>
+        
+        <h3>Enter your age in years</h3>
+        <input id="age" name="age" type="number">
+    
+        <h3>How many number of days have you been absent from school (numeric: from 0 to 93)?</h3><input id="absence" name="absence" required="required">
+
+        <h3>What is the your mother's level of education?</h3><br><select name="medu" id="medu" required="required">
+          <option value="0">None</option>
+          <option value="1">Primary Education</option>
+          <option value="2">Secondary Education</option>
+          <option value="3">Vocational Training</option>
+          <option value="44">Higher Education</option>
+        </select>
+        
+        <h3>What is the your father's level of education?</h3><br><select name="fedu" id="fedu" required="required">
+              <option value="0">None</option>
+              <option value="1">Primary Education</option>
+              <option value="2">Secondary Education</option>
+              <option value="3">Vocational Training</option>
+              <option value="4">Higher Education</option>
+            </select>
+        <h3> How long do you take to  travel from home to school?</h3><br><select name="travel" id="travel" required="required">
+          <option value="0">1 - less than 15 min </option>
+          <option value="1">2 - 15 to 30 min</option>
+          <option value="2">3 - 30 min. to 1 hour</option>
+          <option value="3">4 - greater than 1 hour</option></select>
+
+        <h3>What is your weekly study time?</h3><br><select name="timestudied" id="timestudied" required="required">
+            <option value="0">1 - less than 2 hours</option>
+            <option value="1">2 - 2 to 5 hours </option>
+            <option value="2">3 - 5 to 10 hours </option>
+            <option value="3">4 - greater than 10 hours </option>
+        </select>
+        
+
+        <h3>What is number of your past class failures?</h3><br><select name="failure" id="failure" required="required">
+            <option value="0">1 - less than 2 hours</option>
+            <option value="1">2 - 2 to 5 hours </option>
+            <option value="2">3 - 5 to 10 hours </option>
+            <option value="3">4 - greater than 10 hours </option>
+        </select>
+        <h3>What is your freetime - free time after school (numeric: from 1 - very low to 5 - very high)?</h3><br><select name="timefree" id="timefree" required="required">
+            <option value="0">1 - very low</option>
+            <option value="1">2 - low </option>
+            <option value="2">3 - okay</option>
+            <option value="3">4 - high  </option>
+            <option value="4">5 - very high </option>
+        </select>
+
+        <h3>How frequently do you go out with friends(numeric: from 1 - very low to 5 - very high)?</h3><br><select name="goingout" id="goingout" required="required">
+            <option value="0">1 - very low</option>
+            <option value="1">2 - low </option>
+            <option value="2">3 - okay</option>
+            <option value="3">4 - high  </option>
+            <option value="4">5 - very high </option>
+        </select>
+
+        <h3>How frequently do you do weekend alcohol consumption(numeric: from 1 - very low to 5 - very high)?</h3><br><select name="alcohol" id="alcohol" required="required">
+            <option value="0">1 - very low</option>
+            <option value="1">2 - low </option>
+            <option value="2">3 - okay</option>
+            <option value="3">4 - high  </option>
+            <option value="4">5 - very high </option>
+        </select>
+        <h3> What is your first period grade (numeric: from 0 to 20)?</h3>
+        <input id="fp" name="fp" type="number">
+        <h3>What is your second period grade (numeric: from 0 to 20)?</h3>
+        <input id="sp" name="sp" type="number">
+
+        <br><br><button id="sub" type="submit ">Predict your final grade:</button>
+        <br>
+
+
+
+
+    </form>
+
+
+
+    <br><br><h2>{{ prediction_text }}<h2>
+
+</div>
+
+</body>
+</html> 
+    
